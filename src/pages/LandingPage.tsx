@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAppStore } from '../store/useAppStore';
+import { getAssetPath } from '../utils/path';
 
 export default function LandingPage() {
   const agents = useAppStore(state => state.agents);
@@ -10,7 +11,7 @@ export default function LandingPage() {
       <header className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden" >
         <div className="absolute inset-0">
           <img 
-            src="/panam-city.jpg" 
+            src={getAssetPath('panam-city.jpg')} 
             alt="Panam City Adventure" 
             className="w-full h-full object-cover"
           />
@@ -18,7 +19,7 @@ export default function LandingPage() {
         </div>
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 text-center flex flex-col items-center">
           <div className="flex items-center justify-center gap-4 mb-8">
-            <img src="/logo.jpg" alt="GoZayaan Logo" className="h-12 rounded-lg" />
+            <img src={getAssetPath('logo.jpg')} alt="GoZayaan Logo" className="h-12 rounded-lg" />
             <span className="text-white text-3xl font-headline-sm tracking-wider drop-shadow-md">GoZayaan Pro</span>
           </div>
           <h1 className="text-5xl md:text-8xl font-headline-sm text-white mb-6 drop-shadow-2xl leading-tight">Sophisticated <br/>Adventure Awaits</h1>
@@ -74,7 +75,7 @@ export default function LandingPage() {
           {agents.slice(0, 4).map(agent => (
             <div key={agent.id} className="bg-white rounded-[32px] p-6 shadow-sm border border-outline flex flex-col group hover:shadow-xl transition-all duration-300">
               <div className="relative aspect-square rounded-[24px] bg-gray-200 mb-6 overflow-hidden">
-                <img src={agent.avatar} alt={agent.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src={getAssetPath(agent.avatar)} alt={agent.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2D2926]/40 to-transparent"></div>
                 <div className="absolute bottom-4 left-4">
                   <span className="bg-white/90 backdrop-blur-sm text-[#008080] text-[9px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">
@@ -112,18 +113,18 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-auto lg:h-[650px]">
             {/* Experience 1 */}
             <Link to="/experience/exp7" className="lg:col-span-8 rounded-[40px] overflow-hidden relative group shadow-lg">
-              <img src="/tea-plucking.jpg" alt="Tea Plucking in Sylhet" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={getAssetPath('tea-plucking.jpg')} alt="Tea Plucking in Sylhet" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#2D2926]/95 via-[#2D2926]/60 to-[#2D2926]/10 flex flex-col justify-end p-12">
                 <div className="bg-[#008080] text-white font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full w-fit mb-4">Culinary Heritage</div>
                 <h3 className="text-4xl md:text-5xl font-headline-sm text-white mb-4">Tea Plucking in Sylhet</h3>
-                <p className="text-white/80 text-lg max-w-xl leading-relaxed">Join local tea artisans in the emerald hills of Sylhet. Learn the ancient art of "two leaves and a bud" followed by an organic tasting.</p>
+                <p className="text-white/80 text-lg max-w-xl leading-relaxed">Join local tea artisans in the emerald hills of Sylhet. Learn the ancient art of \"two leaves and a bud\" followed by an organic tasting.</p>
                 <span className="mt-8 text-white font-bold flex items-center gap-2 group-hover:gap-4 transition-all">Explore Experience <span className="material-symbols-outlined">arrow_forward</span></span>
               </div>
             </Link>
             
             {/* Experience 2 */}
             <Link to="/experience/exp6" className="lg:col-span-4 rounded-[40px] overflow-hidden relative group shadow-lg">
-              <img src="/sunset-boat.png" alt="Sunset Boat Ride" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={getAssetPath('sunset-boat.png')} alt="Sunset Boat Ride" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#2D2926]/95 via-[#2D2926]/50 to-transparent flex flex-col justify-end p-10">
                 <div className="bg-[#E2725B] text-white font-bold text-[10px] uppercase tracking-widest px-4 py-1.5 rounded-full w-fit mb-4">Relaxing</div>
                 <h3 className="text-3xl font-headline-sm text-white mb-4 leading-tight">Sunset Boat Ride at Buriganga</h3>

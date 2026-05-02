@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useAppStore } from '../store/useAppStore';
+import { getAssetPath } from '../utils/path';
 
 export default function ExperienceDetailsPage() {
   const { id } = useParams<{ id: string }>();
@@ -31,12 +32,12 @@ export default function ExperienceDetailsPage() {
       {/* Hero Gallery */}
       <div className="w-full h-[60vh] relative flex">
         <div className="w-2/3 h-full relative">
-          <img src={experience.images[0]} alt={experience.title} className="w-full h-full object-cover" />
+          <img src={getAssetPath(experience.images[0])} alt={experience.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
         </div>
         <div className="w-1/3 h-full flex flex-col">
-          <img src={experience.images[1] || experience.image} alt="Detail view" className="w-full h-1/2 object-cover border-l border-b border-white/20" />
-          <img src={experience.image} alt="Detail view" className="w-full h-1/2 object-cover border-l border-white/20" />
+          <img src={getAssetPath(experience.images[1] || experience.image)} alt="Detail view" className="w-full h-1/2 object-cover border-l border-b border-white/20" />
+          <img src={getAssetPath(experience.image)} alt="Detail view" className="w-full h-1/2 object-cover border-l border-white/20" />
         </div>
         <div className="absolute top-6 left-6 z-10 hidden md:block">
           <Link to={`/agent/${agent.id}`} className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full text-sm font-medium hover:bg-white transition-colors flex items-center gap-2">
@@ -120,7 +121,7 @@ export default function ExperienceDetailsPage() {
               </div>
               
               <div className="flex items-center gap-4 mb-6 p-4 rounded-2xl border border-outline bg-gray-50">
-                <img src={agent.avatar} alt={agent.name} className="w-14 h-14 rounded-full object-cover shadow-sm border-2 border-white" />
+                <img src={getAssetPath(agent.avatar)} alt={agent.name} className="w-14 h-14 rounded-full object-cover shadow-sm border-2 border-white" />
                 <div>
                   <p className="text-sm text-gray-500 font-medium">Hosted by</p>
                   <Link to={`/agent/${agent.id}`} className="font-bold text-[#008080] hover:underline">{agent.name}</Link>

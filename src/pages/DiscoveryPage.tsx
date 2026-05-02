@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAppStore } from '../store/useAppStore';
+import { getAssetPath } from '../utils/path';
 
 export default function DiscoveryPage() {
   const getFilteredAgents = useAppStore(state => state.getFilteredAgents);
@@ -79,11 +80,11 @@ export default function DiscoveryPage() {
             <div key={agent.id} className="bg-white rounded-[32px] border border-outline overflow-hidden hover:shadow-xl transition-all duration-300 group hover:border-[#008080]/30 flex flex-col h-full">
               {/* Banner & Avatar */}
               <div className="relative h-48 shrink-0 overflow-hidden">
-                <img src={agent.bannerImage} alt={`${agent.location} surroundings`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={getAssetPath(agent.bannerImage)} alt={`${agent.location} surroundings`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 flex items-end gap-3">
                    <div className="relative">
-                      <img src={agent.avatar} alt={agent.name} className="w-16 h-16 rounded-full border-2 border-white object-cover shadow-md" />
+                      <img src={getAssetPath(agent.avatar)} alt={agent.name} className="w-16 h-16 rounded-full border-2 border-white object-cover shadow-md" />
                       {agent.isVerified && (
                         <div className="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5">
                            <span className="material-symbols-outlined text-blue-500 text-[18px] fill-icon">verified</span>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useAppStore } from '../../store/useAppStore';
+import { getAssetPath } from '../../utils/path';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -71,7 +72,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-[#008080]/90 via-[#008080]/40 to-transparent flex flex-col justify-between p-12">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-white rounded-2xl p-2 shadow-lg">
-                    <img src="/logo.jpg" alt="Logo" className="w-full h-full object-contain" />
+                    <img src={getAssetPath('logo.jpg')} alt="Logo" className="w-full h-full object-contain" />
                   </div>
                   <span className="text-white font-headline-sm text-2xl drop-shadow-lg">GoZayaan Pro</span>
                 </div>
@@ -87,7 +88,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
             <div className="w-full md:w-1/2 p-6 md:p-10 overflow-y-auto flex flex-col justify-center">
               <div className="flex justify-between items-center mb-6">
                 <div className="md:hidden flex items-center gap-3">
-                  <img src="/logo.jpg" alt="Logo" className="h-8" />
+                  <img src={getAssetPath('logo.jpg')} alt="Logo" className="h-8" />
                   <span className="text-[#008080] font-headline-sm text-xl">GoZayaan Pro</span>
                 </div>
                 <button onClick={onClose} className="text-gray-400 hover:text-gray-800 transition-colors ml-auto">

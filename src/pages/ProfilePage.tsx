@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useAppStore } from '../store/useAppStore';
+import { getAssetPath } from '../utils/path';
 
 export default function ProfilePage() {
   const { id } = useParams<{ id: string }>();
@@ -21,12 +22,12 @@ export default function ProfilePage() {
   return (
     <main className="w-full">
       <header className="w-full h-[400px] relative">
-        <img src={agent.bannerImage} alt={`${agent.location} surroundings`} className="w-full h-full object-cover" />
+        <img src={getAssetPath(agent.bannerImage)} alt={`${agent.location} surroundings`} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full">
           <div className="max-w-[1280px] mx-auto px-6 pb-12 flex items-end gap-6 translate-y-12">
             <div className="relative shrink-0">
-              <img src={agent.avatar} alt={agent.name} className="w-32 h-32 rounded-full object-cover border-4 border-surface" />
+              <img src={getAssetPath(agent.avatar)} alt={agent.name} className="w-32 h-32 rounded-full object-cover border-4 border-surface" />
               {agent.isVerified && (
                 <div className="absolute bottom-0 right-0 bg-[#008080] text-white rounded-full p-1 shadow-sm" title="Verified Expert">
                   <span className="material-symbols-outlined text-xl fill-icon">verified</span>
@@ -97,7 +98,7 @@ export default function ProfilePage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {agent.experiences.map(exp => (
                   <Link to={`/experience/${exp.id}`} key={exp.id} className="group relative h-[300px] rounded-[24px] overflow-hidden border border-outline hover:shadow-md transition-shadow bg-white block">
-                    <img src={exp.image} alt={exp.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={getAssetPath(exp.image)} alt={exp.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-6 w-full flex flex-col justify-end h-full">
                       <span className="bg-white/20 text-white text-[10px] uppercase font-bold tracking-widest w-fit px-2 py-0.5 rounded-full mb-3 backdrop-blur-md self-start">{exp.category}</span>
