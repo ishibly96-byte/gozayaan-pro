@@ -16,7 +16,7 @@ export default function MainLayout() {
       <nav className="docked full-width top-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm fixed w-full">
         <div className="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
           <Link to="/" className="flex items-center space-x-2">
-            <img src="https://asset.gozayaan.com/general/gozayaan-logo-new.svg" alt="GoZayaan Logo" className="h-8 object-contain" />
+            <img src="/logo.jpg" alt="GoZayaan Logo" className="h-8 object-contain" />
           </Link>
           <div className="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-tight opacity-80">
             <Link to="/" className="text-[#008080] border-b-2 border-[#008080] pb-1 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-200">Explore</Link>
@@ -50,7 +50,7 @@ export default function MainLayout() {
       <footer className="w-full border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-[#E6E1D6]">
           <div className="text-lg font-bold text-[#008080] font-['Plus_Jakarta_Sans'] flex items-center space-x-2">
-            <img src="https://asset.gozayaan.com/general/gozayaan-logo-new.svg" alt="GoZayaan Logo" className="h-6 object-contain grayscale opacity-60" />
+            <img src="/logo.jpg" alt="GoZayaan Logo" className="h-6 object-contain grayscale opacity-60" />
           </div>
           <div className="flex space-x-6 font-['Plus_Jakarta_Sans'] text-sm">
             <Link to="/about" className="text-slate-500 hover:text-[#008080] hover:underline underline-offset-4 opacity-100 hover:opacity-80 transition-all">About Us</Link>
