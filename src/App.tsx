@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout';
 import LandingPage from './pages/LandingPage';
 import DiscoveryPage from './pages/DiscoveryPage';
@@ -10,7 +10,7 @@ import ExperienceDetailsPage from './pages/ExperienceDetailsPage';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<LandingPage />} />
@@ -27,6 +27,6 @@ export default function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/host" element={<HostOnboardingPage />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
